@@ -26,7 +26,7 @@ experimental_probability = (4/52)*(3/51)*(4/52)        #Since, cards drawn are K
 
 #printing probabilities
 print("The Theoretical Proability is: ",theoretical_probability)
-print("The Experimental Probability is: ",experminetal_probability)
+print("The Experimental Probability is: ",experimental_probability)
     
 
 
