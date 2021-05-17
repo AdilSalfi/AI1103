@@ -150,22 +150,12 @@ Let $X_i$ where $i \in \{1,2,3\}$ be random variables which represent the outcom
 \vspace{0.5cm}
 Using Conditional Probability we can write
 \begin{align}
-    \pr{X_2=0|X_1=0}=\frac{\pr{X_1=0,X_2=0}}{\pr{X_1=0}}
+    \pr{X_1=0,X_2=0}=\pr{X_1=0} \times \pr{X_2=0|X_1=0}
     \label{eq:0.0.1}
 \end{align}
-If the events are independent of each other we can write
-\begin{align}
-    \pr{X_2=0|X_1=0}=\pr{X_2=0}
-    \label{eq:0.0.2}
-\end{align}
-Therefore from \eqref{eq:0.0.1} and \eqref{eq:0.0.2} 
-\begin{align}
-    \pr{X_1=0,X_2=0}=\pr{X_1=0} \times \pr{X_2=0}
-    \label{eq:0.0.3}
-\end{align}
-We need to find \pr{X_1=0,X_2=0,X_3=1}. Using \eqref{eq:0.0.3} we can write
+We need to find \pr{X_1=0,X_2=0,X_3=1}. Using \eqref{eq:0.0.1} we can write
 \begin{multline}
-\pr{X_1=0,X_2=0,X_3=1}=\pr{X_1=0} \times \\ \pr{X_2=0}  \times \pr{X_3=1}
+\pr{X_1=0,X_2=0,X_3=1}=\pr{X_1=0} \times \\ \pr{X_2=0|X_1=0}  \times \pr{X_3=1|X_2=0,X_1=0}
 \end{multline}
 \begin{align}
 \begin{split}
