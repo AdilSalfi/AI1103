@@ -1,3 +1,4 @@
+#Plot for CDF
 import numpy as np
 from matplotlib import pyplot as plt
 from fractions import Fraction
