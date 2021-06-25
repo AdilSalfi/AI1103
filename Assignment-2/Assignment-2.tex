@@ -143,72 +143,86 @@ F(x)=
 1 & x\ge\frac{11}{3}
 \end{cases}
 \end{align*}
-Then $E(X)$ is equal to :
-
 \section*{\textbf{Solution}}
-\textrightarrow The Cumulative Distribution Function F(x) is a step function and Proabability can be calculated using :
-\begin{align*}
-\pr{X=a}=F(a)-F(a^-) \tag{1} \label{1}
-\end{align*}
-\textrightarrow When F(x) is continuos it takes a constant value. Therefore, Using \eqref{1} the probability when F(X) is continuos is 0. Hence these events never occur. \\[1mm]
-\textrightarrow When F(x) is discontinuos there is a jump in the value taken by F(x). Therefore, Using \eqref{1} the probability when F(X) is discontinuos is finite. \\[1mm]
-\textrightarrow As the points of discontinuity are discrete, F(x) represents a cdf of a discrete Random Variable. \\[1mm]
-\textrightarrow The points of discontinuity are $\{0, 1, 2, \frac{11}{3}\}$. Therefore, Random Variable $X\in \{0, 1, 2, \frac{11}{3}\}$ \\
-\vfill\eject
-1) Calculation of \pr{X=0}: \\[2mm]
-Using \eqref{1},
-\begin{align*}
-\rightarrow &\pr{X=0}=F(0)-F(0^-)=\frac{1}{4}-0& \\
-\therefore &\pr{X=0}=\frac{1}{4}& \tag{2} \label{2} 
-\end{align*}
 
-2) Calculation of \pr{X=1}: \\[2mm]
-Using \eqref{1},
+\begin{definition}[Heaviside step function]
+Heaviside step function $u(x)$ is 
 \begin{align*}
-\rightarrow &\pr{X=1}=F(1)-F(1^-)=\frac{1}{3}-\frac{1}{4}& \\
-\therefore &\pr{X=1}=\frac{1}{12}& \tag{3} \label{3} 
+u(x)=               \tag{1} \label{1}
+    \begin{cases}
+    0 & x<0 \\
+    1 & x\geq 0
+    \end{cases}
 \end{align*}
+Using the Heaviside step function $u(x)$, a function $F(t)$ can be obtained whose output is $f(t)$ for the interval $[a,b)$ and $0$ everywhere else
+\begin{align*}
+    F(t)=f(t)[u(t-a) - u(t-b)] \tag{2} \label{2}
+\end{align*}
+\end{definition}
 
-3) Calculation of \pr{X=2}: \\[2mm]
-Using \eqref{1},
+\begin{definition}[Dirac delta function]
+Dirac delta function is the derivative of the Heaviside step function $u(x)$
 \begin{align*}
-\rightarrow &\pr{X=2}=F(2)-F(2^-)=\frac{1}{2}-\frac{1}{3}& \\
-\therefore &\pr{X=2}=\frac{1}{6}& \tag{4} \label{4} 
+    \delta(x) = \frac{du(x)}{dx} \tag{3} \label{3}
 \end{align*}
+An important property of the Dirac delta function is 
+\begin{align*}
+    \int_{-\infty}^{\infty}f(x)\delta(x-x_0)dx = f(x_0) \tag{4} \label{4}
+\end{align*}
+\end{definition}
 
-4) Calculation of \pr{X=\frac{11}{3}}: \\[2mm]
-Using \eqref{1},
+
+% \textrightarrow Let us define the Heaviside step function $u(x)$
+% \begin{align*}
+% u(x)=
+% \begin{cases}
+% 0 & x<0 \\
+% 1 & x\geq 0
+% \end{cases}
+% \end{align*}
+% \textrightarrow The Heaviside step function can be used to obtain a function $F(t)$ whose output is  $f(t)$ for the interval $[a,b)$ and $0$ everywhere else using the the property
+% \begin{equation*}
+% F(t)=f(t)[u(t-a)-u(t-b)] \tag{1} \label{1}
+% \end{equation*}
+% \textrightarrow The derivative of the Heaviside step function $u(x)$ is the dirac delta function $\delta(x)$
+% \begin{equation*}
+% \delta(x)=\frac{du(x)}{dx} \tag{2} \label{2}
+% \end{equation*}
+% \textrightarrow An important property of the delta function is 
+% \begin{equation*}
+% \int_{-\infty}^{\infty} f(x)\delta(x-x_0)dx=f(x_0) \tag{3} \label{3}
+% \end{equation*}
+\textrightarrow To obtain the CDF $F(x)$ in terms of Heaviside step function $u(x)$, we use \eqref{2}
+\begin{multline*}
+F(x)=\frac{1}{4}[u(x)-u(x-1)]+\frac{1}{3}[u(x-1)-u(x-2)]+\\
+\frac{1}{2}[u(x-2)-u(x-\frac{11}{3}]+u(x-\frac{11}{3})
+\end{multline*}
 \begin{align*}
-\rightarrow &\pr{X=\frac{11}{3}}=F(\frac{11}{3})-F({\frac{11}{3}}^-)=1-\frac{1}{2}& \\
-\therefore &\pr{X=\frac{11}{3}}=\frac{1}{2}& \tag{5} \label{5} 
+\implies F(x)=\frac{u(x)}{4}+\frac{u(x-1)}{12}+\frac{u(x-2)}{6}+\frac{u(x-\frac{11}{3})}{2} \tag{5} \label{5}
 \end{align*}
-\\
-\textbf{For Discrete Random Variables}
+\textrightarrow To obtain PDF $f(x)$ we differentiate \eqref{5} and using \eqref{3}, we get
 \begin{align*}
-E(X)&=\sum_{i=1}^{n} x\pr{x} \tag{6} \label{6}
+f(x)=\frac{\delta(x)}{4}+\frac{\delta(x-1)}{12}+\frac{\delta(x-2)}{6}+\frac{\delta(x-\frac{11}{3})}{2} \tag{6} \label{6}
 \end{align*}
-Using \eqref{2},\eqref{3},\eqref{4} and \eqref{5}
+\textrightarrow To obtain $E(x)$ we use the formula
+\begin{equation*}
+E(x)=\int_{-\infty}^{\infty} xf(x)dx \tag{7} \label{7}
+\end{equation*}
+\textrightarrow Substituting \eqref{6} in \eqref{7}, we get
+\begin{multline*}
+E(x)=\int_{-\infty}^{\infty} \frac{x}{4}\delta(x)+\int_{-\infty}^{\infty} \frac{x}{12}\delta(x-1)+\int_{-\infty}^{\infty} \frac{x}{6}\delta(x-2)+\\ 
+\int_{-\infty}^{\infty} \frac{x}{2}\delta(x-\frac{11}{3}) 
+\end{multline*}
+\textrightarrow Using \eqref{4}, we get
 \begin{align*}
-\begin{split}
-    &=(0\times \frac{1}{4})+(1\times \frac{1}{12})+(2\times \frac{1}{6})+(\frac{11}{3}\times \frac{1}{2}) \\
-    &=\frac{27}{12} \\
-\end{split}
-\end{align*}
-\begin{align*}
-\therefore E(X)=2.25 \tag{7} \label{7}
+E(x)&=\frac{0}{4}+\frac{1}{12}+\frac{2}{6}+\frac{\frac{11}{3}}{2} \\
+\therefore E(x)&=2.25 
 \end{align*}
 \newpage
-\begin{figure}[ht]
+\begin{figure}[h!]
     \centering
-    \includegraphics[width=\columnwidth]{CDF.png}
+    \includegraphics[width=\columnwidth]{plot.png}
     \label{fig:1}
-    \figuretag{Fig. 1:CDF of X}
-\end{figure}
-\vfill\eject
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=\columnwidth]{PMF.png}
-    \label{fig:2}
-    \figuretag{Fig. 2:PMF of X}
+    \figuretag{Fig. 1:Plot comparing Simulated and Theoretical value of $E(x)$}
 \end{figure}
 \end{document}
