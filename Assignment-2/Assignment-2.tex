@@ -146,9 +146,10 @@ F(x)=
 Then $E(X)$ is equal to :
 \section*{\textbf{Solution}}
 \begin{definition}[Heaviside step function]
+\label{Heaviside step function}
 Heaviside step function $u(x)$ is 
 \begin{align*}
-u(x)=               \tag{1} \label{1}
+u(x)=                
     \begin{cases}
     0 & x<0 \\
     1 & x\geq 0
@@ -156,40 +157,41 @@ u(x)=               \tag{1} \label{1}
 \end{align*}
 Using the Heaviside step function $u(x)$, a function $F(t)$ can be obtained whose output is $f(t)$ for the interval $[a,b)$ and $0$ everywhere else
 \begin{align*}
-    F(t)=f(t)[u(t-a) - u(t-b)] \tag{2} \label{2}
+    F(t)=f(t)[u(t-a) - u(t-b)] 
 \end{align*}
 \end{definition}
 \begin{definition}[Dirac delta function]
+\label{Dirac delta function}
 Dirac delta function is the derivative of the Heaviside step function $u(x)$
 \begin{align*}
-    \delta(x) = \frac{du(x)}{dx} \tag{3} \label{3}
+    \delta(x) = \frac{du(x)}{dx} 
 \end{align*}
 An important property of the Dirac delta function is 
 \begin{align*}
-    \int_{-\infty}^{\infty}f(x)\delta(x-x_0)dx = f(x_0) \tag{4} \label{4}
+    \int_{-\infty}^{\infty}f(x)\delta(x-x_0)dx = f(x_0) 
 \end{align*}
 \end{definition}
-\textrightarrow To obtain the CDF $F(x)$ in terms of Heaviside step function $u(x)$, we use \eqref{2}
+Using Definition \ref{Heaviside step function}, we get CDF $F(x)$ in terms of Heaviside step function $u(x)$
 \begin{multline*}
 F(x)=\frac{1}{4}[u(x)-u(x-1)]+\frac{1}{3}[u(x-1)-u(x-2)]+\\
 \frac{1}{2}[u(x-2)-u(x-\frac{11}{3}]+u(x-\frac{11}{3})
 \end{multline*}
 \begin{align*}
-\implies F(x)=\frac{u(x)}{4}+\frac{u(x-1)}{12}+\frac{u(x-2)}{6}+\frac{u(x-\frac{11}{3})}{2} \tag{5} \label{5}
+\implies F(x)=\frac{u(x)}{4}+\frac{u(x-1)}{12}+\frac{u(x-2)}{6}+\frac{u(x-\frac{11}{3})}{2} \tag{1} \label{1}
 \end{align*}
-\textrightarrow To obtain PDF $f(x)$ we differentiate \eqref{5} and using \eqref{3}, we get
+Differentiating \eqref{1} and using Definition \ref{Dirac delta function}, we obtain PDF $f(x)$ 
 \begin{align*}
-f(x)=\frac{\delta(x)}{4}+\frac{\delta(x-1)}{12}+\frac{\delta(x-2)}{6}+\frac{\delta(x-\frac{11}{3})}{2} \tag{6} \label{6}
+f(x)=\frac{\delta(x)}{4}+\frac{\delta(x-1)}{12}+\frac{\delta(x-2)}{6}+\frac{\delta(x-\frac{11}{3})}{2} \tag{2} \label{2}
 \end{align*}
-\textrightarrow Using \eqref{6}, we can state that Random Variable $X$ is discrete and it takes values at the points where $f(x) \to \infty$ \\
+ Using \eqref{2}, we can state that Random Variable $X$ is discrete and it takes values at the points where $f(x) \to \infty$ \\
 \begin{align*}
 \therefore X \in \{0, 1, 2, \frac{11}{3}\}
 \end{align*}
-\textrightarrow To obtain the PMF($p_X(k)$) we use the formula
+ To obtain the PMF($p_X(k)$) we use the formula
 \begin{align*}
-\pr{X=a} = \lim_{x\to a}\int_{a}^{x}f(x)dx \tag{7} \label{7}
+\pr{X=a} = \lim_{x\to a}\int_{a}^{x}f(x)dx \tag{3} \label{3}
 \end{align*}
-\textrightarrow Using \eqref{7}, The PMF($p_X(k)$) is :
+ Using \eqref{3}, The PMF($p_X(k)$) is :
 \begin{align*}
 p_X(k)=
 \begin{cases}
@@ -200,10 +202,11 @@ p_X(k)=
 0 & \text{otherwise}
 \end{cases}
 \end{align*}
-\textrightarrow To obtain $E(x)$ we use the formula
+ To obtain $E(x)$ we use the formula
 \begin{align*}
-E(X) = \sum _{\text{all }x} x\pr{X} \tag{8} \end{align*}
-\textrightarrow Therefore, using PMF we get
+E(X) = \sum _{\text{all }x} x\pr{X} \label{4} \tag{4}
+\end{align*}
+ Therefore, using PMF we get
 \begin{align*}
 E(X)& = (0\times \frac{1}{4}) + (1\times \frac{1}{12}) + (2\times \frac{1}{6}) + (\frac{11}{3}\times \frac{1}{2}) \\
 \implies E(X) &= 2.25
