@@ -157,58 +157,63 @@ u(x)=
 \end{align*}
 Using the Heaviside step function $u(x)$, a function $F(t)$ can be obtained whose output is $f(t)$ for the interval $[a,b)$ and $0$ everywhere else
 \begin{align*}
-    F(t)=f(t)[u(t-a) - u(t-b)] 
+    F(t)=f(t)[u(t-a) - u(t-b)] \tag{1} \label{1}
 \end{align*}
 \end{definition}
 \begin{definition}[Dirac delta function]
 \label{Dirac delta function}
 Dirac delta function is the derivative of the Heaviside step function $u(x)$
 \begin{align*}
-    \delta(x) = \frac{du(x)}{dx} 
+    \delta(x) = \frac{du(x)}{dx} \tag{2} \label{2}
 \end{align*}
 An important property of the Dirac delta function is 
 \begin{align*}
-    \int_{-\infty}^{\infty}f(x)\delta(x-x_0)dx = f(x_0) 
+    \int_{-\infty}^{\infty}f(x)\delta(x-x_0)dx = f(x_0) \tag{3} \label{3}
 \end{align*}
 \end{definition}
 Using Definition \ref{Heaviside step function}, we get CDF $F(x)$ in terms of Heaviside step function $u(x)$
 \begin{multline*}
-F(x)=\frac{1}{4}[u(x)-u(x-1)]+\frac{1}{3}[u(x-1)-u(x-2)]+\\
-\frac{1}{2}[u(x-2)-u(x-\frac{11}{3}]+u(x-\frac{11}{3})
+F(x)=\frac{1}{4}\cbrak{u(x)-u(x-1)}+\frac{1}{3}\cbrak{u(x-1)-u(x-2)}+\\
+\frac{1}{2}\cbrak{u(x-2)-u\brak{x-\frac{11}{3}}}+u\brak{x-\frac{11}{3}}
 \end{multline*}
 \begin{align*}
-\implies F(x)=\frac{u(x)}{4}+\frac{u(x-1)}{12}+\frac{u(x-2)}{6}+\frac{u(x-\frac{11}{3})}{2} \tag{1} \label{1}
+\implies F(x)=\frac{u(x)}{4}+\frac{u(x-1)}{12}+\frac{u(x-2)}{6}+\frac{u\brak{x-\frac{11}{3}}}{2} \tag{4} \label{4}
 \end{align*}
-Differentiating \eqref{1} and using Definition \ref{Dirac delta function}, we obtain PDF $f(x)$ 
+Differentiating \eqref{4} and using Definition \ref{Dirac delta function}, we obtain PDF $f(x)$ 
 \begin{align*}
-f(x)=\frac{\delta(x)}{4}+\frac{\delta(x-1)}{12}+\frac{\delta(x-2)}{6}+\frac{\delta(x-\frac{11}{3})}{2} \tag{2} \label{2}
+f(x)=\frac{\delta(x)}{4}+\frac{\delta(x-1)}{12}+\frac{\delta(x-2)}{6}+\frac{\delta\brak{x-\frac{11}{3}}}{2} \tag{5} \label{5}
 \end{align*}
- Using \eqref{2}, we can state that Random Variable $X$ is discrete and it takes values at the points where $f(x) \to \infty$ \\
+ Using \eqref{5}, we can state that Random Variable $X$ is discrete and it takes values at the points where $f(x) \to \infty$ \\
 \begin{align*}
-\therefore X \in \{0, 1, 2, \frac{11}{3}\}
+\therefore X \in \cbrak{0, 1, 2, \frac{11}{3}} \tag{6} \label{6}
 \end{align*}
- To obtain the PMF($p_X(k)$) we use the formula
+To obtain the PMF$\brak{p_X(k)}$ we use the formula
 \begin{align*}
-\pr{X=a} = \lim_{x\to a}\int_{a}^{x}f(x)dx \tag{3} \label{3}
+\brak{p_X(k)} = 
+\lim_{x\to k}\int_{k}^{x}f(x)dx  
+\tag{7} \label{7}
 \end{align*}
- Using \eqref{3}, The PMF($p_X(k)$) is :
+\begin{definition}[PMF of Random Variable $X$]
+\label{PMF}
+ The PMF$\brak{p_X(k)}$ using \eqref{7} is :
 \begin{align*}
-p_X(k)=
+\brak{p_X(k)}=
 \begin{cases}
-\frac{1}{4} & \text{if } x=0 \\
-\frac{1}{12} & \text{if } x=1 \\
-\frac{1}{6} & \text{if } x=2 \\
-\frac{1}{2} & \text{if } x=\frac{11}{3} \\
+\frac{1}{4} & \text{if } k=0 \\
+\frac{1}{12} & \text{if } k=1 \\
+\frac{1}{6} & \text{if } k=2 \\
+\frac{1}{2} & \text{if } k=\frac{11}{3} \\
 0 & \text{otherwise}
 \end{cases}
 \end{align*}
- To obtain $E(x)$ we use the formula
+\end{definition}
+To obtain $E(x)$ we use the formula
 \begin{align*}
-E(X) = \sum _{\text{all }x} x\pr{X} \label{4} \tag{4}
+E(X) = \sum  x\times \brak{p_X(k)} \label{8} \tag{8}
 \end{align*}
  Therefore, using PMF we get
 \begin{align*}
-E(X)& = (0\times \frac{1}{4}) + (1\times \frac{1}{12}) + (2\times \frac{1}{6}) + (\frac{11}{3}\times \frac{1}{2}) \\
+E(X)& = \brak{0\times \frac{1}{4}} + \brak{1\times \frac{1}{12}} + \brak{2\times \frac{1}{6}} + \brak{\frac{11}{3}\times \frac{1}{2}} \\
 \implies E(X) &= 2.25
 \end{align*}
 \newpage
